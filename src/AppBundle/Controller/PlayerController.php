@@ -73,6 +73,8 @@ class PlayerController extends Controller
 
         return $this->render('AppBundle:Player:player.html.twig',[
             'player' => $this->teamsData[$country]['players'][$id],
+
+
         ]);
     }
 }
