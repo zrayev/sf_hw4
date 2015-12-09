@@ -6,23 +6,23 @@ country:
     path:      country/{name}
     defaults:  { _controller: AppBundle:Country:index }
     requirements:
-        name:  en|fr|al|at|be|hr|cs|de|hu|is|ie|it|ie1|pl|pt|ro|ru|sk|es|se|ch|tr|ua|wales
+        name: England|France|Albania|Austria|Belgium|Croatia|Czech|Germany|Hungary|Iceland|Ireland|Italy|Northern_Ireland|Poland|Portugal|Russia|Romania|Slovakia|Spain|Switzerland|Sweden|Turkey|Wales|Ukraine
 
 player:
     path:      player/{country}/{id}
     defaults:  { _controller: AppBundle:Player:index }
     requirements:
-        country:  en|fr|al|at|be|hr|cs|de|hu|is|ie|it|ie1|pl|pt|ro|ru|sk|es|se|ch|tr|ua|wales
+#        country: England|France|Albania|Austria|Belgium|Croatia|Czech|Germany|Hungary|Iceland|Ireland|Italy|Northern_Ireland|Poland|Portugal|Russia|Romania|Slovakia|Spain|Switzerland|Sweden|Turkey|Wales|Ukraine
         id:  \d+
 
 coach:
     path:      coach/{country}
     defaults:  { _controller: AppBundle:Coach:index }
     requirements:
-        country: en|fr|al|at|be|hr|cs|de|hu|is|ie|it|ie1|pl|pt|ro|ru|sk|es|se|ch|tr|ua|wales
+        country: England|France|Albania|Austria|Belgium|Croatia|Czech|Germany|Hungary|Iceland|Ireland|Italy|Northern_Ireland|Poland|Portugal|Russia|Romania|Slovakia|Spain|Switzerland|Sweden|Turkey|Wales|Ukraine
 
 team:
     path:      team/{name}
     defaults:  { _controller: AppBundle:Team:index }
     requirements:
-        name:  en|fr|al|at|be|hr|cs|de|hu|is|ie|it|ie1|pl|pt|ro|ru|sk|es|se|ch|tr|ua|wales
+        name: England|France|Albania|Austria|Belgium|Croatia|Czech|Germany|Hungary|Iceland|Ireland|Italy|Northern_Ireland|Poland|Portugal|Russia|Romania|Slovakia|Spain|Switzerland|Sweden|Turkey|Wales|Ukraine

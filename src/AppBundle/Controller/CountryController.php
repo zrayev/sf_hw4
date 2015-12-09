@@ -15,7 +15,7 @@ class CountryController extends Controller
         $text = $faker->realText($maxNbChars = 3000);
         return $this->render("@App/Country/country.html.twig", array(
             'name' => "$name",
-            'text' => $text
+            'text' => "$text"
         ));
     }
 }
