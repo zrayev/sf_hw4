@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}UERO 2016{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/app.css') }}"/>
+        <link rel="script" href="{{ asset('bundles/app/js/app.js') }}"/>
+    </head>
+    <body>
+        {% block body %}
+            <h1>EURO 2016</h1>
+        {% endblock %}
+        <p>{{ "now"|date(null, "Europe/Kiev") }}</p>
+    </body>
+</html>

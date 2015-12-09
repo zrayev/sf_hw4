@@ -1,0 +1,28 @@
+index:
+    path:      /
+    defaults:  { _controller: AppBundle:Default:index }
+
+country:
+    path:      country/{name}
+    defaults:  { _controller: AppBundle:Country:index }
+    requirements:
+        name:  en|fr|al|at|be|hr|cs|de|hu|is|ie|it|ie1|pl|pt|ro|ru|sk|es|se|ch|tr|ua|wales
+
+player:
+    path:      player/{country}/{id}
+    defaults:  { _controller: AppBundle:Player:index }
+    requirements:
+        country:  en|fr|al|at|be|hr|cs|de|hu|is|ie|it|ie1|pl|pt|ro|ru|sk|es|se|ch|tr|ua|wales
+        id:  \d+
+
+coach:
+    path:      coach/{country}
+    defaults:  { _controller: AppBundle:Coach:index }
+    requirements:
+        country: en|fr|al|at|be|hr|cs|de|hu|is|ie|it|ie1|pl|pt|ro|ru|sk|es|se|ch|tr|ua|wales
+
+team:
+    path:      team/{name}
+    defaults:  { _controller: AppBundle:Team:index }
+    requirements:
+        name:  en|fr|al|at|be|hr|cs|de|hu|is|ie|it|ie1|pl|pt|ro|ru|sk|es|se|ch|tr|ua|wales

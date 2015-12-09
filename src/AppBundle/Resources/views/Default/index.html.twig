@@ -1,0 +1,12 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    {#{{ dump(app ) }}#}
+    {% for key, country in countries %}
+        <div>
+            <a href="{{ path('country', {'name': key}) }}"><img src="{{ asset(country.img) }}"/></a>
+            <a href="{{ path('team', {'name': key}) }}">{{ country.name }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}
