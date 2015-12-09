@@ -1,7 +1,7 @@
 
-[![Build Status](https://travis-ci.org/zrayev/sf_football.svg?branch=dev)](https://travis-ci.org/zrayev/sf_football)
+[![Build Status](https://travis-ci.org/zrayev/sf_hw4.svg?branch=dev)](https://travis-ci.org/zrayev/sf_hw4)
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zrayev/sf_football/badges/quality-score.png?b=dev)](https://scrutinizer-ci.com/g/zrayev/sf_football/?branch=dev)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/zrayev/sf_hw4/badges/quality-score.png?b=dev)](https://scrutinizer-ci.com/g/zrayev/sf_hw4/?branch=dev)
 
-[![Code Coverage](https://scrutinizer-ci.com/g/zrayev/sf_football/badges/coverage.png?b=dev)](https://scrutinizer-ci.com/g/zrayev/sf_football/?branch=dev)
+[![Code Coverage](https://scrutinizer-ci.com/g/zrayev/sf_hw4/badges/coverage.png?b=dev)](https://scrutinizer-ci.com/g/zrayev/sf_hw4/?branch=dev)
 
