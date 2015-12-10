@@ -15,11 +15,11 @@ class PlayerController extends Controller
     public function indexAction()
     {
         $faker = Factory::create();
-        $text = $faker->realText($maxNbChars = 1000);
+        $info = $faker->realText($maxNbChars = 1000);
         $name = $faker->name;
         return $this->render("@App/Player/player.html.twig", array(
             'name' => "$name",
-            'text' => "$text",
+            'info' => "$info",
 //            'footballer' => "$footballer"
         ));
     }
