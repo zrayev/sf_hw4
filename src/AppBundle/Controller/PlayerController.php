@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Faker\Factory;
-use AppBundle\Controller\CountryController;
+//use AppBundle\Controller\CountryController;
 
 class PlayerController extends Controller
 {
