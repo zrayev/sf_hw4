@@ -13,17 +13,16 @@ class TeamController extends Controller
      * @return Response
      * @internal param $name
      */
-    public function indexAction()
+    public function indexAction($name)
     {
         $players = array();
         $coaches = array();
 
         $faker = Factory::create();
 
-        $country = $faker->country;
+       // $country = $faker->country;
         $country_game = $faker->country;
         $score = "$faker->randomDigit".':'."$faker->randomDigit";
-        //$score
         for ($i = 0; $i < 22; $i++) {
             $players[$i] = $faker->name;
         }
@@ -33,11 +32,12 @@ class TeamController extends Controller
         }
 
         return $this->render("@App/Team/team.html.twig", array(
-            'country' => $country,
+          //  'country' => $country,
             'players' => $players,
             'coaches' => $coaches,
             'country_game' => $country_game,
-            'score' => $score
+            'score' => $score,
+            'name' =>$name
         ));
     }
 }

@@ -3,10 +3,10 @@
 {% block body %}
     {{ parent() }}
     {#{{ dump(app ) }}#}
-    {% for key, country in countries %}
+    {% for country in countries %}
         <div>
-            <a href="{{ path('country', {'name': key}) }}"><img src="{{ asset(country.img) }}"/></a>
-            <a href="{{ path('team', {'name': key}) }}">{{ country.name }}</a>
+            <a href="{{ path('country', {'name': country}) }}"><img src="{{ img }}"></a>
+            <a href="{{ path('team', {'name': country}) }}">{{ country }}</a>
         </div>
     {% endfor %}
 {% endblock %}

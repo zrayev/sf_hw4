@@ -17,9 +17,10 @@ class PlayerController extends Controller
         $faker = Factory::create();
         $text = $faker->realText($maxNbChars = 1000);
         $name = $faker->name;
-        return $this->render("@App/Country/country.html.twig", array(
+        return $this->render("@App/Player/player.html.twig", array(
             'name' => "$name",
-            'text' => "$text"
+            'text' => "$text",
+//            'footballer' => "$footballer"
         ));
     }
 }
