@@ -5,14 +5,13 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Faker\Factory;
-//use AppBundle\Controller\CountryController;
 
 class PlayerController extends Controller
 {
     /**
      * @return Response
      */
-    public function indexAction()
+    public function indexAction($country)
     {
         $faker = Factory::create();
         $info = $faker->realText($maxNbChars = 1000);
@@ -20,7 +19,7 @@ class PlayerController extends Controller
         return $this->render("@App/Player/player.html.twig", array(
             'name' => "$name",
             'info' => "$info",
-//            'footballer' => "$footballer"
+            'country' => "$country",
         ));
     }
 }
