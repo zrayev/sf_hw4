@@ -6,14 +6,14 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/');
-        $this->assertTrue($client->getResponse()->isSuccessful());
-        $this->assertTrue($crawler->filter('a:contains("England")')->count() == 1);
-    }
+//    public function testIndex()
+//    {
+//        $client = static::createClient();
+//
+//        $crawler = $client->request('GET', '/');
+//        $this->assertTrue($client->getResponse()->isSuccessful());
+//        $this->assertTrue($crawler->filter('a:contains("England")')->count() == 1);
+//    }
 
     public function testCountry()
     {
@@ -40,11 +40,11 @@ class DefaultControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
-      public function testCoach()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', 'coach/en');
-        $this->assertTrue($client->getResponse()->isSuccessful());
-    }
+//      public function testCoach()
+//    {
+//        $client = static::createClient();
+//
+//        $crawler = $client->request('GET', 'coach/en');
+//        $this->assertTrue($client->getResponse()->isSuccessful());
+//    }
 }
