@@ -51,7 +51,7 @@ class GeneratorController extends Controller
                 $em->flush();
             }
          $p = 0;
-            while($p++ < 12) {
+            while($p++ < 5) {
                 $player = new Player();
                 $em = $this->getDoctrine()->getManager();
                 $player->setName($faker->name);

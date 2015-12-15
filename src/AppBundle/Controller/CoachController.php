@@ -15,23 +15,6 @@ class CoachController extends Controller
      */
     public function indexAction($country)
     {
-//         $i = 0;
-//            while($i++ < 5) {
-//                $faker = Factory::create();
-//                $coach = new Coach();
-//                $em = $this->getDoctrine()->getManager();
-//                $coach->setName($faker->name);
-//                $coach->setText($faker->text(2000));
-//                //$coaches = $em->getRepository("AppBundle:Coach")->findAll();
-//                $em->persist($coach);
-//                $em->flush();
-//            }
-//        return new Response('Created product id '.$coach->getId());
-//
-//        return [
-//            "coach" => $coach
-//        ];
-
         $faker = Factory::create();
         $text = $faker->realText($maxNbChars = 1000);
         $name = $faker->name;

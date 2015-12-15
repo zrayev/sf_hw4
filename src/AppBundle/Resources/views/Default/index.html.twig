@@ -4,10 +4,11 @@
     {{ parent() }}
     {#{{ dump(app ) }}#}
     <a href="{{ path('generator') }}">Generate information</a>
-    {% for country in countries %}
+    {% for key in country %}
         <div>
-            <a href="{{ path('country', {'name': country}) }}"><img src="{{ img }}"></a>
-            <a href="{{ path('team', {'name': country}) }}">{{ country }}</a>
+            {#<a href="{{ path('country', {'name': country.name}) }}"><img src="{{ country.flag }}"></a>#}
+            {#<a href="{{ path('team', {'name': country.name}) }}">{{ country.name }}</a>#}
+       {{ country }}
         </div>
     {% endfor %}
 {% endblock %}
