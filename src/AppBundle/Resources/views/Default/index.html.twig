@@ -3,6 +3,7 @@
 {% block body %}
     {{ parent() }}
     {#{{ dump(app ) }}#}
+    <a href="{{ path('generator') }}">gen</a>
     {% for country in countries %}
         <div>
             <a href="{{ path('country', {'name': country}) }}"><img src="{{ img }}"></a>
