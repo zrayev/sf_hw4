@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Country;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Faker\Factory;
@@ -10,6 +9,10 @@ use Faker\Factory;
 class CountryController extends Controller
 
 {
+    /**
+     * @param $name
+     * @return Response
+     */
     public function indexAction($name)
     {
         $faker = Factory::create();
