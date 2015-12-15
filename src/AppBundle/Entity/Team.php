@@ -24,23 +24,9 @@ class Team
     /**
      * @var string
      *
-     * @ORM\Column(name="players", type="string", length=255)
+     * @ORM\Column(name="country", type="string", length=255)
      */
-    private $players;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="coaches", type="string", length=255)
-     */
-    private $coaches;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="country_game", type="string", length=255)
-     */
-    private $countryGame;
+    private $country;
 
     /**
      * @var string
@@ -52,9 +38,9 @@ class Team
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="country_game", type="string", length=255)
      */
-    private $name;
+    private $countryGame;
 
 
     /**
@@ -68,75 +54,27 @@ class Team
     }
 
     /**
-     * Set players
+     * Set country
      *
-     * @param string $players
+     * @param string $country
      *
      * @return Team
      */
-    public function setPlayers($players)
+    public function setCountry($country)
     {
-        $this->players = $players;
+        $this->country = $country;
 
         return $this;
     }
 
     /**
-     * Get players
+     * Get country
      *
      * @return string
      */
-    public function getPlayers()
+    public function getCountry()
     {
-        return $this->players;
-    }
-
-    /**
-     * Set coaches
-     *
-     * @param string $coaches
-     *
-     * @return Team
-     */
-    public function setCoaches($coaches)
-    {
-        $this->coaches = $coaches;
-
-        return $this;
-    }
-
-    /**
-     * Get coaches
-     *
-     * @return string
-     */
-    public function getCoaches()
-    {
-        return $this->coaches;
-    }
-
-    /**
-     * Set countryGame
-     *
-     * @param string $countryGame
-     *
-     * @return Team
-     */
-    public function setCountryGame($countryGame)
-    {
-        $this->countryGame = $countryGame;
-
-        return $this;
-    }
-
-    /**
-     * Get countryGame
-     *
-     * @return string
-     */
-    public function getCountryGame()
-    {
-        return $this->countryGame;
+        return $this->country;
     }
 
     /**
@@ -164,27 +102,27 @@ class Team
     }
 
     /**
-     * Set name
+     * Set countryGame
      *
-     * @param string $name
+     * @param string $countryGame
      *
      * @return Team
      */
-    public function setName($name)
+    public function setCountryGame($countryGame)
     {
-        $this->name = $name;
+        $this->countryGame = $countryGame;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get countryGame
      *
      * @return string
      */
-    public function getName()
+    public function getCountryGame()
     {
-        return $this->name;
+        return $this->countryGame;
     }
 }
 

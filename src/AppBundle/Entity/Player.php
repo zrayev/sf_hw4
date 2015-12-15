@@ -35,6 +35,19 @@ class Player
      */
     private $info;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255)
+     */
+    private $country;
+
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="team_id", type="string", length=255)
+     */
+    private $teamId;
 
     /**
      * Get id
@@ -93,5 +106,52 @@ class Player
     {
         return $this->info;
     }
-}
 
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return Player
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set teamId
+     *
+     * @param string $teamId
+     *
+     * @return Player
+     */
+    public function setTeamId($teamId)
+    {
+        $this->teamId = $teamId;
+
+        return $this;
+    }
+
+    /**
+     * Get teamId
+     *
+     * @return string
+     */
+    public function getTeamId()
+    {
+        return $this->teamId;
+    }
+}

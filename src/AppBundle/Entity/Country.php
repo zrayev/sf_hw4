@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Coach
+ * Country
  *
- * @ORM\Table(name="coach")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CoachRepository")
+ * @ORM\Table(name="country")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\countryRepository")
  */
-class Coach
+class Country
 {
     /**
      * @var int
@@ -38,16 +38,10 @@ class Coach
     /**
      * @var string
      *
-     * @ORM\Column(name="country", type="string", length=255)
+     * @ORM\Column(name="flag", type="string", length=255)
      */
-    private $country;
+    private $flag;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="team_id", type="string", length=255)
-     */
-    private $teamId;
 
     /**
      * Get id
@@ -64,7 +58,7 @@ class Coach
      *
      * @param string $name
      *
-     * @return Coach
+     * @return country
      */
     public function setName($name)
     {
@@ -88,7 +82,7 @@ class Coach
      *
      * @param string $info
      *
-     * @return Coach
+     * @return country
      */
     public function setInfo($info)
     {
@@ -108,50 +102,26 @@ class Coach
     }
 
     /**
-     * Set country
+     * Set flag
      *
-     * @param string $country
+     * @param string $flag
      *
-     * @return Coach
+     * @return Country
      */
-    public function setCountry($country)
+    public function setFlag($flag)
     {
-        $this->country = $country;
+        $this->flag = $flag;
 
         return $this;
     }
 
     /**
-     * Get country
+     * Get flag
      *
      * @return string
      */
-    public function getCountry()
+    public function getFlag()
     {
-        return $this->country;
-    }
-
-    /**
-     * Set teamId
-     *
-     * @param string $teamId
-     *
-     * @return Coach
-     */
-    public function setTeamId($teamId)
-    {
-        $this->teamId = $teamId;
-
-        return $this;
-    }
-
-    /**
-     * Get teamId
-     *
-     * @return string
-     */
-    public function getTeamId()
-    {
-        return $this->teamId;
+        return $this->flag;
     }
 }
