@@ -19,6 +19,11 @@ class CountryController extends Controller
             ->findOneBy(
             array('name' => $name)
             );
+        if (!$country) {
+            throw $this->createNotFoundException(
+                'No country found for name '.$name
+            );
+        }
              return $this->render('AppBundle:Country:country.html.twig', [
             'country' =>$country
               ]);

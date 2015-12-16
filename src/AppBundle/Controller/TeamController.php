@@ -19,6 +19,11 @@ class TeamController extends Controller
             ->findOneBy(
             array('country' => $name)
             );
+        if (!$team) {
+            throw $this->createNotFoundException(
+                'No team found for name '.$name
+            );
+        }
         $players = $this->getDoctrine()
             ->getRepository('AppBundle:Player')
             ->findByCountry(
