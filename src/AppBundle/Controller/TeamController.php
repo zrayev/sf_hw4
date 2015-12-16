@@ -4,7 +4,6 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Faker\Factory;
 
 class TeamController extends Controller
 {
@@ -15,30 +14,26 @@ class TeamController extends Controller
      */
     public function indexAction($name)
     {
-        $players = array();
-        $coaches = array();
-
-        $faker = Factory::create();
-
-       // $country = $faker->country;
-        $country_game = $faker->country;
-        $score = "$faker->randomDigit".':'."$faker->randomDigit";
-        for ($i = 0; $i < 22; $i++) {
-            $players[$i] = $faker->name;
-        }
-        $faker = Factory::create();
-        for ($i = 0; $i < 5; $i++) {
-            $coaches[$i] = $faker->name;
-        }
-
-        return $this->render("@App/Team/team.html.twig", array(
-          //  'country' => $country,
-            'players' => $players,
-            'coaches' => $coaches,
-            'country_game' => $country_game,
-            'score' => $score,
-            'name' =>$name
-        ));
+        $team = $this->getDoctrine()
+            ->getRepository('AppBundle:Team')
+            ->findOneBy(
+            array('country' => $name)
+            );
+        $players = $this->getDoctrine()
+            ->getRepository('AppBundle:Player')
+            ->findByCountry(
+              array('country' => $name)
+            );
+        $coaches = $this->getDoctrine()
+            ->getRepository('AppBundle:Coach')
+            ->findByCountry(
+              array('country' => $name)
+            );
+             return $this->render('AppBundle:Team:team.html.twig', [
+                 'team' => $team,
+                 'players' => $players,
+                 'coaches' => $coaches
+              ]);
     }
 }
 

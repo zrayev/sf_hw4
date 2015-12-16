@@ -4,8 +4,7 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use AppBundle\Entity\Coach;
-use Faker\Factory;
+
 
 class CoachController extends Controller
 
@@ -13,15 +12,16 @@ class CoachController extends Controller
     /**
      * @return Response
      */
-    public function indexAction($country)
+    public function indexAction($id)
     {
-        $faker = Factory::create();
-        $text = $faker->realText($maxNbChars = 1000);
-        $name = $faker->name;
-        return $this->render("@App/Coach/coach.html.twig", array(
-            'name' => "$name",
-            'text' => "$text",
-            'country' => "$country",
-        ));
+            $coach = $this->getDoctrine()
+            ->getRepository('AppBundle:Coach')
+            ->findOneBy(
+            array(
+                'id' => $id
+            ));
+             return $this->render('AppBundle:Coach:coach.html.twig', [
+            'coach' =>$coach
+             ]);
     }
 }

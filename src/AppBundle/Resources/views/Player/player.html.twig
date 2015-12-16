@@ -1,8 +1,7 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-   {#<div>{{ name }}</div>#}
-    <h1>{{ country }} team</h1>
-    <h2>Player name - {{ name }}</h2>
-    <div>{{ info }}</div>
+    <h1>{{ player.country }} team</h1>
+    <h2>Player name - {{ player.name }}</h2>
+    <div>{{ player.info }}</div>
 {% endblock %}
