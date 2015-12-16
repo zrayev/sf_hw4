@@ -4,22 +4,23 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Faker\Factory;
 
 class CountryController extends Controller
 
 {
     /**
-     * @param $name
      * @return Response
+     * @internal param $name
      */
     public function indexAction($name)
     {
-        $faker = Factory::create();
-        $text = $faker->realText($maxNbChars = 3000);
-        return $this->render("@App/Country/country.html.twig", array(
-            'name' => "$name",
-            'text' => "$text"
-        ));
+        $country = $this->getDoctrine()
+            ->getRepository('AppBundle:Country')
+            ->findOneBy(
+            array('name' => $name)
+            );
+             return $this->render('AppBundle:Country:country.html.twig', [
+            'country' =>$country
+              ]);
     }
 }
