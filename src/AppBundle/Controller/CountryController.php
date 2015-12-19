@@ -9,6 +9,7 @@ class CountryController extends Controller
 
 {
     /**
+     * @param $name
      * @return Response
      * @internal param $name
      */
@@ -17,8 +18,10 @@ class CountryController extends Controller
         $country = $this->getDoctrine()
             ->getRepository('AppBundle:Country')
             ->findOneBy(
-            array('name' => $name)
-            );
+                ['name' => $name]
+            )
+        ;
+
         if (!$country) {
             throw $this->createNotFoundException(
                 'No country found for name '.$name

@@ -42,7 +42,7 @@ class Player
      */
     private $country;
 
-        /**
+    /**
      * @var string
      *
      * @ORM\Column(name="team_id", type="string", length=255)

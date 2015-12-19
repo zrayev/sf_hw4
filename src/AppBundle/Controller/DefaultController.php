@@ -16,6 +16,7 @@ class DefaultController extends Controller
         $countries = $this->getDoctrine()
             ->getRepository('AppBundle:Country')
             ->findAll();
+
              return $this->render('AppBundle:Default:index.html.twig', [
             'countries' =>$countries
               ]);

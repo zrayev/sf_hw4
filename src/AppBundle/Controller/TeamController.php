@@ -14,7 +14,8 @@ class TeamController extends Controller
      */
     public function indexAction($name)
     {
-        $team = $this->getDoctrine()
+        $doctrine  = $this->getDoctrine();
+        $team = $doctrine
             ->getRepository('AppBundle:Team')
             ->findOneBy(
             array('country' => $name)
@@ -24,16 +25,17 @@ class TeamController extends Controller
                 'No team found for name '.$name
             );
         }
-        $players = $this->getDoctrine()
+        $players = $doctrine
             ->getRepository('AppBundle:Player')
-            ->findByCountry(
-              array('country' => $name)
+            ->findBy(
+              ['country' => $name]
             );
-        $coaches = $this->getDoctrine()
+        $coaches = $doctrine
             ->getRepository('AppBundle:Coach')
-            ->findByCountry(
-              array('country' => $name)
+            ->findBy(
+              ['country' => $name]
             );
+
              return $this->render('AppBundle:Team:team.html.twig', [
                  'team' => $team,
                  'players' => $players,

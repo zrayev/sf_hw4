@@ -14,13 +14,14 @@ class PlayerController extends Controller
     {
         $player = $this->getDoctrine()
             ->getRepository('AppBundle:Player')
-            ->findOneBy(
-            array('id' => $id));
+            ->find($id);
+
         if (!$player) {
             throw $this->createNotFoundException(
                 'No player found for id '.$id
             );
         }
+
              return $this->render('AppBundle:Player:player.html.twig', [
             'player' =>$player
              ]);
