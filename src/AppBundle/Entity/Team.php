@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,7 +42,28 @@ class Team
      * @ORM\Column(name="country_game", type="string", length=255)
      */
     private $countryGame;
+    /**
+     * @var Player[]
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Player", mappedBy="team")
+     */
+    private $players;
 
+        /**
+     * @var Coach[]
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Coach", mappedBy="team")
+     */
+    private $coaches;
+
+    /**
+     *
+     */
+    public function __construct()
+    {
+        $this->players = new ArrayCollection();
+        $this->coaches = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -124,5 +146,61 @@ class Team
     {
         return $this->countryGame;
     }
+
+    /**
+     * @return Player[]
+     */
+    public function getPlayers()
+    {
+        return $this->players;
+    }
+
+    /**
+     * @param Player $value
+     */
+    public function addPlayer($value)
+    {
+        $this->players[] = $value;
+    }
+
+    /**
+     * @param Player[] $value
+     * @return $this
+     */
+    public function setPlayers($value)
+    {
+        $this->players = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return Coach[]
+     */
+    public function getCoaches()
+    {
+        return $this->coaches;
+    }
+
+    /**
+     * @param Coach $value
+     */
+    public function addCoach($value)
+    {
+        $this->coaches[] = $value;
+    }
+
+    /**
+     * @param Coach[] $value
+     * @return $this
+     */
+    public function setCoaches($value)
+    {
+        $this->coaches = $value;
+
+        return $this;
+    }
+
+
 }
 

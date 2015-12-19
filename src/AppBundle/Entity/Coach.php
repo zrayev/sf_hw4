@@ -45,9 +45,9 @@ class Coach
     /**
      * @var string
      *
-     * @ORM\Column(name="team_id", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Team", inversedBy="coaches")
      */
-    private $teamId;
+    private $team;
 
     /**
      * Get id
@@ -132,26 +132,22 @@ class Coach
     }
 
     /**
-     * Set teamId
-     *
-     * @param string $teamId
-     *
-     * @return Coach
+     * @return string
      */
-    public function setTeamId($teamId)
+    public function getTeam()
     {
-        $this->teamId = $teamId;
+        return $this->team;
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setTeam($value)
+    {
+        $this->team = $value;
 
         return $this;
     }
 
-    /**
-     * Get teamId
-     *
-     * @return string
-     */
-    public function getTeamId()
-    {
-        return $this->teamId;
-    }
 }

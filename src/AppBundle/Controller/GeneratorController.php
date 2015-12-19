@@ -46,7 +46,7 @@ class GeneratorController extends Controller
                 $coach->setName($faker->name);
                 $coach->setInfo($faker->text(2000));
                 $coach->setCountry($country->getName());
-                $coach->setTeamId($team->getId());
+                $coach->setTeam($team);
                 $em->persist($coach);
                 $em->flush();
             }
@@ -57,7 +57,7 @@ class GeneratorController extends Controller
                 $player->setName($faker->name);
                 $player->setInfo($faker->text(2000));
                 $player->setCountry($country->getName());
-                $player->setTeamId($team->getId());
+                $player->setTeam($team);
                 $em->persist($player);
                 $em->flush();
             }

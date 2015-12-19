@@ -20,26 +20,15 @@ class TeamController extends Controller
             ->findOneBy(
             array('country' => $name)
             );
+
         if (!$team) {
             throw $this->createNotFoundException(
                 'No team found for name '.$name
             );
         }
-        $players = $doctrine
-            ->getRepository('AppBundle:Player')
-            ->findBy(
-              ['country' => $name]
-            );
-        $coaches = $doctrine
-            ->getRepository('AppBundle:Coach')
-            ->findBy(
-              ['country' => $name]
-            );
 
              return $this->render('AppBundle:Team:team.html.twig', [
                  'team' => $team,
-                 'players' => $players,
-                 'coaches' => $coaches
               ]);
     }
 }

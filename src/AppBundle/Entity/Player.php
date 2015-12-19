@@ -43,11 +43,11 @@ class Player
     private $country;
 
     /**
-     * @var string
+     * @var Team
      *
-     * @ORM\Column(name="team_id", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Team", inversedBy="players")
      */
-    private $teamId;
+    private $team;
 
     /**
      * Get id
@@ -132,26 +132,22 @@ class Player
     }
 
     /**
-     * Set teamId
-     *
-     * @param string $teamId
-     *
-     * @return Player
+     * @return Team
      */
-    public function setTeamId($teamId)
+    public function getTeam()
     {
-        $this->teamId = $teamId;
+        return $this->team;
+    }
+
+    /**
+     * @param Team $value
+     * @return $this
+     */
+    public function setTeam($value)
+    {
+        $this->team = $value;
 
         return $this;
     }
 
-    /**
-     * Get teamId
-     *
-     * @return string
-     */
-    public function getTeamId()
-    {
-        return $this->teamId;
-    }
 }
