@@ -11,4 +11,9 @@
         <div>
             <a href="{{ path('game') }}">Games</a>
         </div>
+    <form action="{{ path('search') }}">
+  <p><b>Seach player</b></p>
+  <p><input type="text" name="name">
+  <p><input type="submit"></p>
+ </form>
 {% endblock %}

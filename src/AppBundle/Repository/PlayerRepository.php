@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\Query;
+
 /**
  * PlayerRepository
  *
@@ -10,4 +12,17 @@ namespace AppBundle\Repository;
  */
 class PlayerRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    /**
+     * @param $name
+     * @return Query
+     */
+    public function findByNameQuery($name)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.name LIKE :name')
+            ->setParameter(':name', sprintf('%%s%', $name))
+            ->getQuery()
+        ;
+    }
 }

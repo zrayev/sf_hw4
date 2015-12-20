@@ -21,3 +21,7 @@ team:
 game:
     path:      game
     defaults:  { _controller: AppBundle:Game:index }
+
+search:
+    path:      search
+    defaults:  { _controller: AppBundle:Player:search }

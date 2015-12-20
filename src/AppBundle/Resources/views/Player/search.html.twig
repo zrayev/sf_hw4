@@ -1,16 +1,14 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
+    <h1>Result</h1>
     <div class="count">
     {{ pagination.getTotalItemCount }}
     </div>
-
-    <h1> Games </h1>
-    {% for game in pagination %}
-        {% for team in game.teams %}
-           <p> {{ team.country.name }}</p>
-        {% endfor %}
-        {{ game.score }}
+    {% for player in pagination %}
+        <li><a href="search.html.twig">{{ player.name }}</a> </li>
+    {% else %}
+        <li><em>no player found</em></li>
     {% endfor %}
 
     <div class="navigation">
