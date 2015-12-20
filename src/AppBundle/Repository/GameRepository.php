@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\Query;
+
 /**
  * GameRepository
  *
@@ -10,4 +12,13 @@ namespace AppBundle\Repository;
  */
 class GameRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return Query
+     */
+    public function findAllQuery()
+    {
+        return $this->createQueryBuilder('g')
+            ->getQuery()
+        ;
+    }
 }
