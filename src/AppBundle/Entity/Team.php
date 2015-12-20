@@ -57,12 +57,19 @@ class Team
     private $coaches;
 
     /**
+     * @var Game[]
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Game", inversedBy="teams")
+     */
+    private $games;
+
+    /**
      *
      */
     public function __construct()
     {
         $this->players = new ArrayCollection();
         $this->coaches = new ArrayCollection();
+        $this->games = new ArrayCollection();
     }
 
     /**
@@ -201,6 +208,35 @@ class Team
         return $this;
     }
 
+    /**
+     * @return Game[]
+     */
+    public function getGames()
+    {
+        return $this->games;
+    }
+
+    /**
+     * @param Game[] $value
+     * @return $this
+     */
+    public function setGames($value)
+    {
+        $this->games = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param Game $value
+     * @return $this
+     */
+    public function addGame($value)
+    {
+        $this->games[] = $value;
+
+        return $this;
+    }
 
 }
 

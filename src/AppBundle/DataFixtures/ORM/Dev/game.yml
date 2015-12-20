@@ -1,0 +1,5 @@
+AppBundle\Entity\Game:
+  game_{1..20}:
+    score: '<numberBetween(0, 6)> : <numberBetween(0, 6)>'
+    date: <dateTimeBetween('-200 days', 'now')>
+    teams: 2x @team_*
