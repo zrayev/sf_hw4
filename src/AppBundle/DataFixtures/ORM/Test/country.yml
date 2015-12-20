@@ -1,0 +1,5 @@
+AppBundle\Entity\Country:
+  country_{1..3}:
+    name: <country()>
+    info: <text(2000)>
+    flag: <imageUrl(22, 15)>

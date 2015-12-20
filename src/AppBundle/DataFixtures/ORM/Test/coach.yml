@@ -1,0 +1,6 @@
+AppBundle\Entity\Coach:
+  coach_{1..6}:
+    name: <name()>
+    info: <text(200)>
+    country: <country()>
+    team: @team*

@@ -1,16 +1,18 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
+    <h1> Games </h1>
     <div class="count">
-    {{ pagination.getTotalItemCount }}
+        All games - {{ pagination.getTotalItemCount }}
+        <hr>
     </div>
 
-    <h1> Games </h1>
     {% for game in pagination %}
         {% for team in game.teams %}
            <p> {{ team.country.name }}</p>
         {% endfor %}
         {{ game.score }}
+        <hr>
     {% endfor %}
 
     <div class="navigation">
