@@ -23,9 +23,9 @@ class Team
     private $id;
 
     /**
-     * @var string
+     * @var Country
      *
-     * @ORM\Column(name="country", type="string", length=255)
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Country", inversedBy="team")
      */
     private $country;
 
@@ -78,7 +78,7 @@ class Team
     /**
      * Set country
      *
-     * @param string $country
+     * @param Country $country
      *
      * @return Team
      */
@@ -92,7 +92,7 @@ class Team
     /**
      * Get country
      *
-     * @return string
+     * @return Country
      */
     public function getCountry()
     {

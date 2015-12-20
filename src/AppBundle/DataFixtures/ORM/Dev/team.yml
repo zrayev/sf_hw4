@@ -1,5 +1,5 @@
 AppBundle\Entity\Team:
-  team:
-    country: <country()>
-    score: <country()>
+  team_{1..10}:
+    country: '@country_<current()>'
+    score: '<numberBetween(0, 6)> : <numberBetween(0, 6)>'
     countryGame: <country()>

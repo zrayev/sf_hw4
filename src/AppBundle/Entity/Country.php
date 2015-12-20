@@ -42,6 +42,12 @@ class Country
      */
     private $flag;
 
+    /**
+     * @var Team
+     *
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Team", mappedBy="country")
+     */
+    private $team;
 
     /**
      * Get id
@@ -123,5 +129,24 @@ class Country
     public function getFlag()
     {
         return $this->flag;
+    }
+
+    /**
+     * @return Team
+     */
+    public function getTeam()
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param Team $value
+     * @return $this
+     */
+    public function setTeam($value)
+    {
+        $this->team = $value;
+
+        return $this;
     }
 }
