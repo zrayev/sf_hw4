@@ -1,0 +1,5 @@
+AppBundle\Entity\Team:
+  team:
+    country: <country()>
+    score: <country()>
+    countryGame: <country()>
