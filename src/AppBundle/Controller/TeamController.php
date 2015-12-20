@@ -12,18 +12,16 @@ class TeamController extends Controller
      * @return Response
      * @internal param $name
      */
-    public function indexAction($name)
+    public function indexAction($id)
     {
         $doctrine  = $this->getDoctrine();
         $team = $doctrine
             ->getRepository('AppBundle:Team')
-            ->findOneBy(
-            array('country' => $name)
-            );
+            ->find($id);
 
         if (!$team) {
             throw $this->createNotFoundException(
-                'No team found for name '.$name
+                'No team found for id '.$id
             );
         }
 

@@ -4,9 +4,8 @@
     {{ parent() }}
     {% for country in countries %}
         <div>
-            <a href="{{ path('country', {'name': country.name}) }}"><img src="{{ country.flag }}"></a>
-            <a href="{{ path('team', {'name': country.name}) }}">{{ country.name }}</a>
+            <a href="{{ path('country', {'id': country.id}) }}"><img src="{{ country.flag }}"></a>
+            <a href="{{ path('team', {'id': country.team.id}) }}">{{ country.name }}</a>
         </div>
     {% endfor %}
-    <h5><a href="{{ path('generator') }}">Add info to database</a></h5>
 {% endblock %}

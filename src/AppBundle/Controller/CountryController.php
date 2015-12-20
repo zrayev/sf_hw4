@@ -9,22 +9,19 @@ class CountryController extends Controller
 
 {
     /**
-     * @param $name
+     * @param $id
      * @return Response
-     * @internal param $name
      */
-    public function indexAction($name)
+    public function indexAction($id)
     {
         $country = $this->getDoctrine()
             ->getRepository('AppBundle:Country')
-            ->findOneBy(
-                ['name' => $name]
-            )
+            ->find($id)
         ;
 
         if (!$country) {
             throw $this->createNotFoundException(
-                'No country found for name '.$name
+                'No country found for name '.$id
             );
         }
              return $this->render('AppBundle:Country:country.html.twig', [

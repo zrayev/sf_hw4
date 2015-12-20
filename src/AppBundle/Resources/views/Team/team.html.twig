@@ -1,26 +1,26 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-    <h2>Players is {{ team.country }} team:</h2>
+    <h2>Players is {{ team.country.name }} team:</h2>
     <div>
         <ul>
         {% for player in team.players %}
-           <li> <a href="{{ path('player', {'country': player.country, 'id': player.id}) }}"> {{ player.name }} </a> </li>
+           <li> <a href="{{ path('player', {'id': player.id}) }}"> {{ player.name }} </a> </li>
         {% endfor %}
         </ul>
     </div>
-     <h2>Coaches is {{ team.country }} team:</h2>
+     <h2>Coaches is {{ team.country.name }} team:</h2>
     <div>
         <ul>
         {% for coach in team.coaches %}
-            <li><a href="{{ path('coach',{'country':coach.country, 'id': coach.id }) }}"> {{ coach.name }} </a></li>
+            <li><a href="{{ path('coach',{ 'id': coach.id }) }}"> {{ coach.name }} </a></li>
         {% endfor %}
         </ul>
     </div>
-   <h2>Games is {{ team.country }}:</h2>
+   <h2>Games is {{ team.country.name }}:</h2>
     <div>
         <ul>
-            {{ team.country }} - {{ team.countryGame }}  {{ team.score }}
+            {{ team.country.name }} - {{ team.countryGame }}  {{ team.score }}
         </ul>
     </div>
 {% endblock %}

@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 class PlayerController extends Controller
 {
     /**
+     * @param $id
      * @return Response
      */
     public function indexAction($id)
