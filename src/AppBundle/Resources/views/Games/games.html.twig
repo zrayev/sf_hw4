@@ -1,0 +1,12 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    <h1> Games </h1>
+    {% for game in games %}
+        {% for team in game.teams %}
+           <p> {{ team.country.name }}</p>
+        {% endfor %}
+        {{ game.score }}
+
+    {% endfor %}
+{% endblock %}

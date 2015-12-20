@@ -17,3 +17,7 @@ coach:
 team:
     path:      team/{id}
     defaults:  { _controller: AppBundle:Team:index }
+
+game:
+    path:      game
+    defaults:  { _controller: AppBundle:Game:index }
