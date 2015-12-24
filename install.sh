@@ -2,7 +2,6 @@
 # -----------------------------------------------------------------------------
 #          FILE:  install.sh
 #   DESCRIPTION:  Install packages.
-#       VERSION:  1.0.1
 # -----------------------------------------------------------------------------
 
 echo "make a choice"
@@ -26,6 +25,7 @@ case $command in
 
     npm install gulp
     gulp
+    ./app/console doctrine:database:drop --force
     ./app/console doctrine:database:create
     ./app/console doctrine:schema:update --force
 ;;
