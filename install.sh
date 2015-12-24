@@ -30,7 +30,7 @@ case $command in
     ./app/console doctrine:schema:update --force
 ;;
 
-4)
+2)
     echo "log and cache"
     rm -rf app/cache/*
     rm -rf app/logs/*
