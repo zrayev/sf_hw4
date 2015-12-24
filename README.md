@@ -1,7 +1,9 @@
 Run:
-    git pull https://github.com/zrayev/sf_hw4 dev
-    chmod +x install.sh
-    install.sh
+git pull https://github.com/zrayev/sf_hw4 dev
+    
+chmod +x install.sh
+    
+./install.sh
     
 [![Build Status](https://travis-ci.org/zrayev/sf_hw4.svg?branch=dev)](https://travis-ci.org/zrayev/sf_hw4)
 
