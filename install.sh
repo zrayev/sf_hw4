@@ -2,7 +2,7 @@
 # -----------------------------------------------------------------------------
 #          FILE:  install.sh
 #   DESCRIPTION:  Install packages.
-#       VERSION:  1.0
+#       VERSION:  1.0.1
 # -----------------------------------------------------------------------------
 
 echo "make a choice"
@@ -24,11 +24,10 @@ case $command in
     rm -rf composer.phar
     composer install
 
-    ./node_modules/.bin/gulp
+    npm install gulp
     gulp
     ./app/console doctrine:database:create
     ./app/console doctrine:schema:update --force
-    ./app/console c:c
 ;;
 
 4)
