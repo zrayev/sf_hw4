@@ -7,9 +7,9 @@
 
 echo "make a choice"
 echo "1) install packages"
-echo "2) add fixtures"
-echo "3) run tests"
-echo "4) log and cache"
+echo "2) log and cache"
+echo "3) add fixtures"
+echo "4) run tests"
 echo "0) exit"
 
 read command
@@ -31,26 +31,26 @@ case $command in
     ./app/console c:c
 ;;
 
-2)
+4)
+    echo "log and cache"
+    rm -rf app/cache/*
+    rm -rf app/logs/*
+
+    HTTPDUSER=`ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
+    sudo setfacl -R -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs
+    sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs
+;;
+
+3)
     echo "add fixtures"
     ./app/console doctrine:schema:update --force
     ./app/console h:d:f:l
 ;;
 
-3)
+4)
     echo "run tests"
     ./bin/phpunit -c app
     sleep 5
-;;
-
-4)
-    echo "log and cache"
-    rm -rf var/cache/*
-    rm -rf var/logs/*
-
-    HTTPDUSER=`ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
-    sudo setfacl -R -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX var/cache var/logs
-    sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX var/cache var/logs
 ;;
 
 0)
