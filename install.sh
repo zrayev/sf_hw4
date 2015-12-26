@@ -23,7 +23,7 @@ case $command in
     rm -rf composer.phar
     composer install
 
-    npm install gulp
+    ./node_modules/gulp/bin/gulp.js
     gulp
     ./app/console doctrine:database:drop --force
     ./app/console doctrine:database:create
