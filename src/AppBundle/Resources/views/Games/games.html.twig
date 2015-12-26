@@ -6,7 +6,13 @@
         All games - {{ pagination.getTotalItemCount }}
         <hr>
     </div>
-
+    <div>
+        {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+    <hr>
     {% for game in pagination %}
         {% for team in game.teams %}
            <p> {{ team.country.name }}</p>
