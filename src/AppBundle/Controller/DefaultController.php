@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 
 {
+
     /**
      * @return Response
      */
@@ -17,8 +18,8 @@ class DefaultController extends Controller
             ->getRepository('AppBundle:Country')
             ->findAll();
 
-             return $this->render('AppBundle:Default:index.html.twig', [
-            'countries' =>$countries
-              ]);
+        return $this->render('AppBundle:Default:index.html.twig', [
+            'countries' =>$countries,
+        ]);
     }
 }

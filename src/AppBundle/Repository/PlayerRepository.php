@@ -12,7 +12,6 @@ use Doctrine\ORM\Query;
  */
 class PlayerRepository extends \Doctrine\ORM\EntityRepository
 {
-
     /**
      * @param $name
      * @return Query
@@ -21,7 +20,7 @@ class PlayerRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->createQueryBuilder('p')
             ->where('p.name LIKE :name')
-            ->setParameter(':name', sprintf('%%s%', $name))
+            ->setParameter(':name', "%$name%")
             ->getQuery()
         ;
     }

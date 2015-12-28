@@ -2,13 +2,50 @@ index:
     path:      /
     defaults:  { _controller: AppBundle:Default:index }
 
+country_create:
+    path:        country/create
+    defaults:  { _controller: AppBundle:Country:create }
+
+country_edit:
+    path:      country/edit/{id}
+    defaults:  { _controller: AppBundle:Country:edit }
+
+country_delete:
+    path:      country/delete/{id}
+    defaults:  { _controller: AppBundle:Country:delete }
+
 country:
     path:      country/{id}
     defaults:  { _controller: AppBundle:Country:index }
 
+player_edit:
+    path:      player/edit/{id}
+    defaults:  { _controller: AppBundle:Player:edit }
+
+player_delete:
+    path:      player/delete/{id}
+    defaults:  { _controller: AppBundle:Player:delete }
+
+
+player_create:
+    path:      player/create
+    defaults:  { _controller: AppBundle:Player:create }
+
 player:
     path:      player/{id}
     defaults:  { _controller: AppBundle:Player:index }
+
+coach_edit:
+    path:      coach/edit/{id}
+    defaults:  { _controller: AppBundle:Coach:edit }
+
+coach_delete:
+    path:      coach/delete/{id}
+    defaults:  { _controller: AppBundle:Coach:delete }
+
+coach_create:
+    path:      coach/create
+    defaults:  { _controller: AppBundle:Coach:create }
 
 coach:
     path:      coach/{id}
@@ -17,6 +54,18 @@ coach:
 team:
     path:      team/{id}
     defaults:  { _controller: AppBundle:Team:index }
+
+game_create:
+    path:        game/create
+    defaults:  { _controller: AppBundle:Game:create }
+
+game_edit:
+    path:       game/edit/{id}
+    defaults:  { _controller: AppBundle:Game:edit }
+
+game_delete:
+    path:      game/delede/{id}
+    defaults:  { _controller: AppBundle:Game:delete }
 
 game:
     path:      game

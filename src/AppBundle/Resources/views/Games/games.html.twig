@@ -4,20 +4,17 @@
     <h1> Games </h1>
     <div class="count">
         All games - {{ pagination.getTotalItemCount }}
-        <hr>
     </div>
-    <div>
-        {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
-    </div>
+    <a href="{{ path('game_create') }}">Add game</a>
     <hr>
     {% for game in pagination %}
         {% for team in game.teams %}
            <p> {{ team.country.name }}</p>
         {% endfor %}
         {{ game.score }}
+        <p>{{ game.date|date('Y-m-d') }}</p>
+        <a href="{{ path('game_edit', {'id': game.id}) }}">Edit</a>
+        <a href="{{ path('game_delete', {'id': game.id}) }}">Delete</a>
         <hr>
     {% endfor %}
 

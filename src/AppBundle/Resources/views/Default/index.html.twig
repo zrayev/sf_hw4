@@ -6,14 +6,20 @@
         <div>
             <a href="{{ path('country', {'id': country.id}) }}"><img src="{{ country.flag }}"></a>
             <a href="{{ path('team', {'id': country.team.id}) }}">{{ country.name }}</a>
+            <a href="{{ path('country_edit', {'id': country.id}) }}">Edit</a>
+            <a href="{{ path('country_delete', {'id': country.id}) }}">Delete</a>
         </div>
     {% endfor %}
         <div>
-            <a href="{{ path('game') }}">Games</a>
+            <h2><a href="{{ path('game') }}">Games</a></h2>
         </div>
     <form action="{{ path('search') }}">
-  <p><b>Seach player</b></p>
-  <p><input type="text" name="name">
-  <p><input type="submit"></p>
- </form>
+    <p><b>Seach player</b></p>
+    <p><input type="text" name="name">
+    <p><input type="submit"></p>
+    </form>
+    <a href="{{ path('country_create') }}">Add country</a>
+     {#<a href="{{ path('index_new') }}">#}
+        {#<button type="button" class="btn btn-default btn-xs">Add</button>#}
+    {#</a>#}
 {% endblock %}

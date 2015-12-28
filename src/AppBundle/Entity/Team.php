@@ -25,34 +25,28 @@ class Team
     /**
      * @var Country
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Country", inversedBy="team")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Country", inversedBy="team", cascade={"persist", "remove"})
      */
     private $country;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="score", type="string", length=255)
+     * @ORM\Column(name="info", type="text")
      */
-    private $score;
+    private $info;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="country_game", type="string", length=255)
-     */
-    private $countryGame;
     /**
      * @var Player[]
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Player", mappedBy="team")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Player", mappedBy="team", cascade={"persist", "remove"})
      */
     private $players;
 
         /**
      * @var Coach[]
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Coach", mappedBy="team")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Coach", mappedBy="team", cascade={"persist", "remove"})
      */
     private $coaches;
 
@@ -104,54 +98,6 @@ class Team
     public function getCountry()
     {
         return $this->country;
-    }
-
-    /**
-     * Set score
-     *
-     * @param string $score
-     *
-     * @return Team
-     */
-    public function setScore($score)
-    {
-        $this->score = $score;
-
-        return $this;
-    }
-
-    /**
-     * Get score
-     *
-     * @return string
-     */
-    public function getScore()
-    {
-        return $this->score;
-    }
-
-    /**
-     * Set countryGame
-     *
-     * @param string $countryGame
-     *
-     * @return Team
-     */
-    public function setCountryGame($countryGame)
-    {
-        $this->countryGame = $countryGame;
-
-        return $this;
-    }
-
-    /**
-     * Get countryGame
-     *
-     * @return string
-     */
-    public function getCountryGame()
-    {
-        return $this->countryGame;
     }
 
     /**
@@ -234,6 +180,25 @@ class Team
     public function addGame($value)
     {
         $this->games[] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setInfo($value)
+    {
+        $this->info = $value;
 
         return $this;
     }

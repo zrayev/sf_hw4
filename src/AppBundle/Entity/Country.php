@@ -38,14 +38,14 @@ class Country
     /**
      * @var string
      *
-     * @ORM\Column(name="flag", type="string", length=255)
+     * @ORM\Column(name="flag", type="string", length=255, nullable=true)
      */
     private $flag;
 
     /**
      * @var Team
      *
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Team", mappedBy="country")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Team", mappedBy="country", cascade={"persist", "remove"})
      */
     private $team;
 
@@ -81,6 +81,11 @@ class Country
     public function getName()
     {
         return $this->name;
+    }
+
+     public function __toString()
+    {
+        return $this->getName();
     }
 
     /**
@@ -146,6 +151,7 @@ class Country
     public function setTeam($value)
     {
         $this->team = $value;
+        $value->setCountry($this);
 
         return $this;
     }

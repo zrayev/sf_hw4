@@ -1,26 +1,28 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
+    <h2>Info is {{ team.country.name }} team:</h2>
+    {{ team.info }}
     <h2>Players is {{ team.country.name }} team:</h2>
     <div>
-        <ul>
+    <ul>
         {% for player in team.players %}
-           <li> <a href="{{ path('player', {'id': player.id}) }}"> {{ player.name }} </a> </li>
+        <li> <a href="{{ path('player', {'id': player.id}) }}"> {{ player.name }} </a> </li>
+            <a href="{{ path('player_edit', {'id': player.id}) }}">Edit</a>
+            <a href="{{ path('player_delete', {'id': player.id}) }}">Delete</a>
         {% endfor %}
         </ul>
+        <a href="{{ path('player_create') }}">Add player</a>
     </div>
      <h2>Coaches is {{ team.country.name }} team:</h2>
     <div>
         <ul>
         {% for coach in team.coaches %}
             <li><a href="{{ path('coach',{ 'id': coach.id }) }}"> {{ coach.name }} </a></li>
+            <a href="{{ path('coach_edit', {'id': coach.id}) }}">Edit</a>
+            <a href="{{ path('coach_delete', {'id': coach.id}) }}">Delete</a>
         {% endfor %}
         </ul>
-    </div>
-   <h2>Games is {{ team.country.name }}:</h2>
-    <div>
-        <ul>
-            {{ team.country.name }} - {{ team.countryGame }}  {{ team.score }}
-        </ul>
-    </div>
+        <a href="{{ path('coach_create') }}">Add coach</a>
+    <div/>
 {% endblock %}
