@@ -50,6 +50,7 @@ class CoachController extends Controller
             if ($form->isValid()) {
                 $coach = $form->getData();
                 $em->persist($coach);
+
                 $em->flush();
 
         //    return $this->redirectToRoute('team', array('id' => $coach->getTeam()->getId()));

@@ -61,6 +61,11 @@ class CountryController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
     public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -93,7 +98,12 @@ class CountryController extends Controller
         ]);
     }
 
-      public function deleteAction($id, Request $request)
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function deleteAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $country = $em

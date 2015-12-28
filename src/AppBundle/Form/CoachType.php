@@ -22,6 +22,10 @@ class CoachType extends AbstractType
             ->add('country', EntityType::class, array(
                 'class' => 'AppBundle\Entity\Country',
                 'choice_label' => 'name'
+            ))
+            ->add('team', EntityType::class, array(
+                'class' => 'AppBundle\Entity\Team',
+                'choice_label' => 'country'
             ) );
     }
 
