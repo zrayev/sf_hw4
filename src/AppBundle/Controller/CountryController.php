@@ -80,7 +80,7 @@ class CountryController extends Controller
         }
 
         $form = $this->createForm(CountryType::class, $country);
-        $form->add('save', SubmitType::class, array('label' => 'Save'));
+        $form->add('save', SubmitType::class, array('label' => 'Edit'));
 
          if ($request->getMethod() === 'POST') {
 
@@ -117,7 +117,7 @@ class CountryController extends Controller
         }
 
         $form = $this->createForm(CountryType::class, $country);
-        $form->add('save', SubmitType::class, array('label' => 'Save'));
+        $form->add('save', SubmitType::class, array('label' => 'Delete'));
 
          if ($request->getMethod() === 'POST') {
 

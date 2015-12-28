@@ -53,7 +53,7 @@ class CoachController extends Controller
 
                 $em->flush();
 
-        //    return $this->redirectToRoute('team', array('id' => $coach->getTeam()->getId()));
+            return $this->redirectToRoute('team', array('id' => $coach->getTeam()->getId()));
             }
         }
 
@@ -81,7 +81,7 @@ class CoachController extends Controller
         }
 
         $form = $this->createForm(CoachType::class, $coach);
-        $form->add('save', SubmitType::class, array('label' => 'Save'));
+        $form->add('save', SubmitType::class, array('label' => 'Edit'));
 
          if ($request->getMethod() === 'POST') {
 
@@ -108,7 +108,7 @@ class CoachController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $coach = $em
-            ->getRepository('AppBundle:Country')
+            ->getRepository('AppBundle:Coach')
             ->find($id);
 
         if (!$coach) {
@@ -118,7 +118,7 @@ class CoachController extends Controller
         }
 
         $form = $this->createForm(CoachType::class, $coach);
-        $form->add('save', SubmitType::class, array('label' => 'Save'));
+        $form->add('save', SubmitType::class, array('label' => 'Delete'));
 
         if ($request->getMethod() === 'POST') {
 

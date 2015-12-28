@@ -31,7 +31,6 @@ class GameController extends Controller
 
     public function createAction(Request $request)
     {
-        $game = new Game();
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(GameType::class);
         $form->add('save', SubmitType::class, array('label' => 'Save'));
@@ -65,7 +64,7 @@ class GameController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(GameType::class, $game);
-        $form->add('save', SubmitType::class, array('label' => 'Save'));
+        $form->add('save', SubmitType::class, array('label' => 'Edit'));
         if ($request->getMethod()=='POST'){
             $form->handleRequest($request);
             if ($form->isValid()) {
@@ -94,7 +93,7 @@ class GameController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(GameType::class, $game);
-        $form->add('save', SubmitType::class, array('label' => 'Save'));
+        $form->add('save', SubmitType::class, array('label' => 'Delete'));
         if ($request->getMethod()=='POST'){
             $form->handleRequest($request);
             if ($form->isValid()) {

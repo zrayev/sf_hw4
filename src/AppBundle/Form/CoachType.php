@@ -26,7 +26,8 @@ class CoachType extends AbstractType
             ->add('team', EntityType::class, array(
                 'class' => 'AppBundle\Entity\Team',
                 'choice_label' => 'country'
-            ) );
+            ) )
+        ;
     }
 
     /**
@@ -36,6 +37,7 @@ class CoachType extends AbstractType
     {
         $resolver->setDefaults([
         'data_class' => 'AppBundle\Entity\Coach'
-        ]);
+        ])
+        ;
     }
 }

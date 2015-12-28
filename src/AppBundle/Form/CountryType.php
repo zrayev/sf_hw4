@@ -4,7 +4,6 @@ namespace AppBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,8 +24,7 @@ class CountryType extends AbstractType
             ->add('flag', EntityType::class, array(
                 'class' => 'AppBundle\Entity\Country',
                 'choice_label' => 'flag'
-            ))
-        ;
+            ));
     }
 
     /**
@@ -38,14 +36,4 @@ class CountryType extends AbstractType
             'data_class' => 'AppBundle\Entity\Country'
         ]);
     }
-
-//    /**
-//     * @return string
-//     */
-//    public function getBlockPrefix()
-//    {
-//        return 'country_type';
-//    }
 }
-
-

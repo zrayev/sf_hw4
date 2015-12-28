@@ -27,11 +27,15 @@ class PlayerController extends Controller
             );
         }
 
-             return $this->render('AppBundle:Player:player.html.twig', [
+        return $this->render('AppBundle:Player:player.html.twig', [
             'player' =>$player
              ]);
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public function searchAction(Request $request)
     {
         $name = $request->query->get('name');
@@ -66,7 +70,7 @@ class PlayerController extends Controller
                 $em->persist($player);
                 $em->flush();
 
-//            return $this->redirectToRoute('team', array('id' => $player->getTeam()->getId()));
+            return $this->redirectToRoute('team', array('id' => $player->getTeam()->getId()));
             }
         }
 
@@ -94,7 +98,7 @@ class PlayerController extends Controller
         }
 
         $form = $this->createForm(PlayerType::class, $player);
-        $form->add('save', SubmitType::class, array('label' => 'Save'));
+        $form->add('save', SubmitType::class, array('label' => 'Edit'));
 
         if ($request->getMethod() === 'POST') {
 
@@ -112,7 +116,12 @@ class PlayerController extends Controller
         ]);
     }
 
-      public function deleteAction($id, Request $request)
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function deleteAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $player = $em
@@ -126,7 +135,7 @@ class PlayerController extends Controller
         }
 
         $form = $this->createForm(PlayerType::class, $player);
-        $form->add('save', SubmitType::class, array('label' => 'Save'));
+        $form->add('save', SubmitType::class, array('label' => 'Delete'));
 
          if ($request->getMethod() === 'POST') {
 

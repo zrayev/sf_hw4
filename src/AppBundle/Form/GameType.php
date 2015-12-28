@@ -24,12 +24,12 @@ class GameType extends AbstractType
             ->add('score', TextType::class)
             ->add('date', DateType::class)
             ->add('teams', CollectionType::class, array(
-            'entry_type'   => EntityType::class,
-            'entry_options'  => array(
-                'attr'      => array('class' => 'email-box'),
-                'class' => Team::class,
-                'property' =>'country.name'
-            )));
+                'entry_type' => EntityType::class,
+                'entry_options' => array(
+                    'class' => Team::class,
+                    'property' => 'country.name'
+                )))
+        ;
     }
 
     /**
@@ -38,15 +38,8 @@ class GameType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-        'data_class' => 'AppBundle\Entity\Game'
-        ]);
+            'data_class' => 'AppBundle\Entity\Game'
+        ])
+        ;
     }
-
-//    /**
-//     * @return string
-//     */
-//    public function getBlockPrefix()
-//    {
-//        return 'game_type';
-//    }
 }
