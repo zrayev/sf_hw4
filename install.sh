@@ -21,7 +21,6 @@ case $command in
     curl -sS https://getcomposer.org/installer | php
     php composer.phar install
     rm -rf composer.phar
-    composer install
 
     ./node_modules/.bin/gulp install
     ./node_modules/gulp/bin/gulp.js

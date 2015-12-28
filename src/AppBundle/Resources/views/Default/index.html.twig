@@ -10,16 +10,16 @@
             <a href="{{ path('country_delete', {'id': country.id}) }}">Delete</a>
         </div>
     {% endfor %}
-        <div>
-            <h2><a href="{{ path('game') }}">Games</a></h2>
-        </div>
+    <hr>
+    <div>
+        <a href="{{ path('country_create') }}">Add country</a>
+    </div>
+    <div>
+            <h2><a href="{{ path('game') }}">Games UERO 2016</a></h2>
+    </div>
     <form action="{{ path('search') }}">
-    <p><b>Seach player</b></p>
+    <p><b>Seach player:</b></p>
     <p><input type="text" name="name">
     <p><input type="submit"></p>
     </form>
-    <a href="{{ path('country_create') }}">Add country</a>
-     {#<a href="{{ path('index_new') }}">#}
-        {#<button type="button" class="btn btn-default btn-xs">Add</button>#}
-    {#</a>#}
 {% endblock %}
